@@ -1,0 +1,203 @@
+:root{
+    /*Primary-Text*/
+    --primaryVeryDark: hsl(238, 29%, 16%);
+    --primarySoftRed: hsl(14, 88%, 65%);
+    /*BackgroundColor*/
+    --softViolet: hsl(273, 75%, 66%);
+    --softBlue: hsl(240, 73%, 65%);
+    /*NeutralText*/
+    --veryDarkGreyishBlue: hsl(237, 12%, 33%);
+    --darkGreyishBlue: hsl(240, 6%, 50%);
+    /*Divider*/
+    --dividerGrayishBlues: hsl(240, 5%, 91%);
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/*CSS RESET*/
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+h1,
+h2,
+h3{
+    margin-top: 0;
+}
+
+.box_desk{ /*Hiding the box image on the mobile version*/
+    display: none;
+}
+
+body{
+    height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+    background-image: linear-gradient(var(--softViolet), var(--softBlue));
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin: 10em 1.2em 0 1.2em;
+    background-color: #FFF;
+    border-radius: 1.5rem;
+    padding: 0 6% 10% 6%;
+    min-width: 15rem;
+}
+
+
+.mobile_picture {       /*Mobile Image*/
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-13%);
+    padding-bottom: 2rem;
+    width: 100%;
+    max-width: 15rem;
+    background-image: url("images/bg-pattern-mobile.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom ;
+}
+
+.card_text{
+    padding: 45% 0 0 0;
+}
+
+.card_text h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--primaryVeryDark);
+}
+
+.accordion_question{
+    background: transparent;
+    border: none;
+    margin-bottom: 1rem;
+    padding: 0 0.3rem 0 0;
+    font-size: 0.82rem;
+    width: 100%;
+    color: var(--veryDarkGreyishBlue);
+    font-family: 'Kumbh Sans', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion_question:hover{
+    color: var(--primarySoftRed);
+}
+
+.accordion_question::after{
+    content: '';
+    background-image: url("images/icon-arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: transform 300ms ease-in-out;
+}
+
+.accordion_question.active{
+    font-weight: 700;
+    color: var(--primarySoftRed);
+}
+
+.accordion_question.active::after{
+    transform: rotate(180deg);
+}
+
+.accordion_content{
+    font-size: 0.75rem;
+    color: var(--darkGreyishBlue);
+    margin-bottom: 0.8rem;
+    height: auto;
+    display: none;
+}
+
+.accordion_content.open{
+    display: block;
+}
+
+.accordion_item{
+    padding: 0.4rem 0;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--dividerGrayishBlues);
+}
+
+
+/*Used this @media to keep the card from expanding too much*/
+
+@media screen and (min-width: 31.25em){
+
+    main{
+        margin: 10em auto 0 auto;
+        max-width: 28rem;
+
+    }
+}
+
+/*@media for desktop version*/
+
+@media screen and (min-width: 60em) {
+
+    .mobile_picture {  /*Hiding mobile image on the desk version*/
+        display: none;
+    }
+
+    body{
+        display: flex; /*Used flex to hove the main card at the center of the screen*/
+        align-items: center;
+    }
+
+    main {
+        margin: 2em auto 0 auto;
+        padding: 0;
+        width: 57.5rem;
+        height: 31.8rem;
+        max-width: 90%;
+        background-image: url("images/illustration-woman-online-desktop.svg"), url("images/bg-pattern-desktop.svg");
+        background-repeat: no-repeat, no-repeat;
+        background-size: 30rem, 50rem;
+        background-position: left -5em center, left -26em bottom -6em;
+    }
+
+    .box_desk{
+        display: block;
+        position: absolute;
+        transform: translateX(-50%) translateY(110%);
+    }
+
+    .card_text {
+        float: right;
+        padding: 4rem 0 5rem 0;
+        margin-right: 6rem;
+        width: 22rem;
+    }
+
+    .card_text h1{
+        text-align: left;
+        font-weight: 700;
+    }
+
+    .accordion_question{
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+
